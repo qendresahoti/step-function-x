@@ -1,0 +1,50 @@
+pp: testingapp
+service: qnd-step-function-x
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs12.x
+  region: ${opt:region, 'us-east-1'}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - states:*
+        - sns:*
+      Resource:
+        - "*"
+
+functions:
+  stepOneFunction:
+    handler: handler.stepOneFunction
+  stepTwoFunction:
+    handler: handler.stepTwoFunction
+  executeStepFunction:
+    handler: handler.executeStepFunction
+    events:
+      - http:
+          path: /step-function
+          method: GET
+#
+#stepFunctions:
+#  stateMachines:
+#    StepfuncexampletestingExpress:
+#      type: EXPRESS
+#      name: 'StepfuncexampletestingExpress'
+#      definition:
+#        Comment: "A Hello World example"
+#        StartAt: StateA
+#        States:
+#          StateA:
+#            Type: Task
+#            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-functionStateA"
+#            Next: StateB
+#          StateB:
+#            Type: Task
+#            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-functionStateB"
+#            End: true
+
+# plugins:
+#   - serverless-step-functions
+#   - serverless-pseudo-parameters
