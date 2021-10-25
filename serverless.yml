@@ -16,10 +16,10 @@ provider:
         - "*"
 
 functions:
-  stepOneFunction:
-    handler: handler.stepOneFunction
-  stepTwoFunction:
-    handler: handler.stepTwoFunction
+  doSomethingStepOne:
+    handler: handler.doSomethingStepOne
+  doSomethingStepTwo:
+    handler: handler.doSomethingStepTwo
   executeStepFunction:
     handler: handler.executeStepFunction
     events:
@@ -45,6 +45,6 @@ functions:
 #            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-functionStateB"
 #            End: true
 
-# plugins:
-#   - serverless-step-functions
-#   - serverless-pseudo-parameters
+ plugins:
+   - serverless-step-functions
+   - serverless-pseudo-parameters

@@ -1,8 +1,8 @@
-const stepOneFunction = (input) => {
+const doSomethingStepOne = (input) => {
     return {}
 }
 
-const stepTwoFunction = (input) => {
+const doSomethingStepTwo = (input) => {
     return {}
 }
 
@@ -10,6 +10,6 @@ const executeStepFunction = (input) => {
     return {}
 }
 
-module.exports.stepOneFuncton = stepOneFunction;
-module.exports.stepTwoFunction = stepTwoFunction;
+module.exports.doSomethingStepOne = doSomethingStepOne;
+module.exports.doSomethingStepTwo = doSomethingStepTwo;
 module.exports.executeStepFunction = executeStepFunction;
