@@ -26,24 +26,24 @@ functions:
       - http:
           path: /step-function
           method: GET
-#
-#stepFunctions:
-#  stateMachines:
-#    StepfuncexampletestingExpress:
-#      type: EXPRESS
-#      name: 'StepfuncexampletestingExpress'
-#      definition:
-#        Comment: "A Hello World example"
-#        StartAt: StateA
-#        States:
-#          StateA:
-#            Type: Task
-#            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-functionStateA"
-#            Next: StateB
-#          StateB:
-#            Type: Task
-#            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-functionStateB"
-#            End: true
+
+stepFunctions:
+  stateMachines:
+    qndStateMachineOne:
+      type: EXPRESS
+      name: 'qndStateMachineOne'
+      definition:
+        Comment: "Simple sf example"
+        StartAt: theFirstState
+        States:
+          theFirstState:
+            Type: Task
+            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-doSomethingStepOne"
+            Next: doSomethingStepTwo
+          StateB:
+            Type: Task
+            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-doSomethingStepTwo"
+            End: true
 
 plugins:
    - serverless-step-functions
