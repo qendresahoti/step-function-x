@@ -39,8 +39,8 @@ stepFunctions:
           theFirstState:
             Type: Task
             Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-doSomethingStepOne"
-            Next: doSomethingStepTwo
-          StateB:
+            Next: theSecondState
+          theSecondState:
             Type: Task
             Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-doSomethingStepTwo"
             End: true
