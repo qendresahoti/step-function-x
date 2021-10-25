@@ -45,6 +45,6 @@ functions:
 #            Resource: "arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${opt:stage}-functionStateB"
 #            End: true
 
- plugins:
+plugins:
    - serverless-step-functions
    - serverless-pseudo-parameters
